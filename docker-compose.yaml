@@ -23,5 +23,5 @@ services:
       - LDAP_ADMIN_BIND_PWD=admin
       - LDAP_IGNORE_CERT_ERRORS=true
       - NO_HTTPS=TRUE
-      - PASSWORD_HASH=SSHA
+      - PASSWORD_HASH=CLEAR
       - ACCEPT_WEAK_PASSWORDS=true
