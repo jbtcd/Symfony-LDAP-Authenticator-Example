@@ -21,7 +21,7 @@ security:
             provider: my_ldap
             form_login_ldap:
                 service: Symfony\Component\Ldap\Ldap
-                dn_string: 'uid={user_identifier},dc=example,dc=com'
+                dn_string: 'uid={user_identifier},ou=people,dc=example,dc=com'
                 login_path: app_login
                 check_path: app_login
 

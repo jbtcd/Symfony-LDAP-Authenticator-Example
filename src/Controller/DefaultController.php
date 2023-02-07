@@ -20,7 +20,7 @@ class DefaultController extends AbstractController
     }
 
     #[Route(path: '/secret', name: 'secret')]
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_USER')]
     public function secret(): Response
     {
         return $this->render(
