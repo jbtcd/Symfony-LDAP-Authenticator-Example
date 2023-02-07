@@ -3,10 +3,11 @@ version: "3.8"
 services:
   openldap:
     image: osixia/openldap
+    ports: ['389']
     environment:
       - LDAP_ORGANISATION=example-com
       - LDAP_DOMAIN=example.com
-      - LDAP_ADMIN_PASSWORD=admin
+      - LDAP_ADMIN_PASSWORD=password
       - LDAP_CONFIG_PASSWORD=config
       - LDAP_RFC2307BIS_SCHEMA=true
       - LDAP_REMOVE_CONFIG_AFTER_SETUP=true
@@ -14,13 +15,14 @@ services:
 
   openldap-ui:
     image: wheelybird/ldap-user-manager
+    ports: ['80']
     environment:
       - LDAP_URI=ldap://openldap
       - LDAP_BASE_DN=dc=example,dc=com
       - LDAP_REQUIRE_STARTTLS=FALSE
       - LDAP_ADMINS_GROUP=admin
       - LDAP_ADMIN_BIND_DN=cn=admin,dc=example,dc=com
-      - LDAP_ADMIN_BIND_PWD=admin
+      - LDAP_ADMIN_BIND_PWD=password
       - LDAP_IGNORE_CERT_ERRORS=true
       - NO_HTTPS=TRUE
       - PASSWORD_HASH=CLEAR
